@@ -24,7 +24,7 @@ const CreateBook = (props) => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:8082/api/books', book)
+      .post('https://mernazbe.azurewebsites.net/api/books', book)
       .then((res) => {
         setBook({
           title: '',
