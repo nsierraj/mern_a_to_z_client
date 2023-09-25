@@ -83,7 +83,7 @@ function ShowBookDetails(props) {
           <br />
           <div className='col-md-8 m-auto'>
             <h1 className='display-4 text-center'>Book's Record</h1>
-            <p className='lead text-center'>View Book's Info</p>
+            <p className='lead text-center'>View Book's Information</p>
             <hr /> <br />
           </div>
           <div className='col-md-10 m-auto'>{BookItem}</div>
