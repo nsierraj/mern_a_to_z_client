@@ -21,7 +21,7 @@ steps:
   displayName: 'npm install and build'
 
 - task: ArchiveFiles@2
-  enabled: false
+  enabled: true
   inputs:
     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
     includeRootFolder: false
