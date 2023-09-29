@@ -21,12 +21,11 @@ steps:
   displayName: 'npm install and build'
 
 - task: ArchiveFiles@2
-  enabled: false
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-    includeRootFolder: false
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/app.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
 - task: PublishPipelineArtifact@1
