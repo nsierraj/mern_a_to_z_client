@@ -16,6 +16,8 @@ const CreateBook = (props) => {
     publisher: '',
   });
 
+  const booksUrl = process.env.REACT_APP_BE_BOOKS_URL;
+
   const onChange = (e) => {
     setBook({ ...book, [e.target.name]: e.target.value });
   };
@@ -24,7 +26,7 @@ const CreateBook = (props) => {
     e.preventDefault();
 
     axios
-      .post('https://mernazbe.azurewebsites.net/api/books', book)
+      .post(`${booksUrl}/api/books`, book)
       .then((res) => {
         setBook({
           title: '',

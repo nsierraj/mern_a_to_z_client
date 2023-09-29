@@ -9,20 +9,22 @@ function ShowBookDetails(props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const booksUrl = process.env.REACT_APP_BE_BOOKS_URL;
+
   useEffect(() => {
     axios
-      .get(`https://mernazbe.azurewebsites.net/api/books/${id}`)
+      .get(`${booksUrl}/api/books/${id}`)
       .then((res) => {
         setBook(res.data);
       })
       .catch((err) => {
         console.log('Error from ShowBookDetails');
       });
-  }, [id]);
+  }, [id, booksUrl]);
 
   const onDeleteClick = (id) => {
     axios
-      .delete(`https://mernazbe.azurewebsites.net/api/books/${id}`)
+      .delete(`${booksUrl}/api/books/${id}`)
       .then((res) => {
         navigate('/');
       })

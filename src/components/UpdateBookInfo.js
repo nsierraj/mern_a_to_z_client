@@ -16,9 +16,11 @@ function UpdateBookInfo(props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const booksUrl = process.env.REACT_APP_BE_BOOKS_URL;
+
   useEffect(() => {
     axios
-      .get(`https://mernazbe.azurewebsites.net/api/books/${id}`)
+      .get(`${booksUrl}/api/books/${id}`)
       .then((res) => {
         setBook({
           title: res.data.title,
@@ -32,7 +34,7 @@ function UpdateBookInfo(props) {
       .catch((err) => {
         console.log('Error from UpdateBookInfo');
       });
-  }, [id]);
+  }, [id, booksUrl]);
 
   const onChange = (e) => {
     setBook({ ...book, [e.target.name]: e.target.value });
@@ -51,7 +53,7 @@ function UpdateBookInfo(props) {
     };
 
     axios
-      .put(`https://mernazbe.azurewebsites.net/api/books/${id}`, data)
+      .put(`${booksUrl}/api/books/${id}`, data)
       .then((res) => {
         navigate(`/show-book/${id}`);
       })
